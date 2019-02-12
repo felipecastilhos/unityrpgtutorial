@@ -1,2 +1,2 @@
-# unityrpgtutorial
-Unity 2D RPG Tutorial
+# Unity RPG Tutorial
+Practicing to create a basic RPG game
