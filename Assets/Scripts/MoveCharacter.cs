@@ -13,6 +13,7 @@ public class MoveCharacter : MonoBehaviour {
     private SpriteRenderer heroRender;
     private bool enableDamageColor;
     [SerializeField] private bool criticalDamage;
+    [SerializeField] private CircleCollider2D attackArea;
 
 
     // Start is called before the first frame update
@@ -25,19 +26,36 @@ public class MoveCharacter : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        inputCharacter();
-        if (direction.x != 0.0f || direction.y != 0.0f) {
+        attackArea.isTrigger = false;
+        InputCharacter();
+        if(direction != Vector2.zero)
+        {
+            attackArea.offset = new Vector2(direction.x / 2, direction.y / 2);
+        }
+        SetAnimation();
+        ApplyColorFilters();
+
+    }
+
+    private void SetAnimation(){
+        if (System.Math.Abs(direction.x) > 0.0f || System.Math.Abs(direction.y) > 0.0f)
+        {
             Animate(direction);
         }
-        else {
+        else
+        {
             animator.SetLayerWeight(1, 0);
         }
+    }
 
-        if(enableDamageColor) {
-            PingPongColor(8); 
+    private void ApplyColorFilters(){
+        if (enableDamageColor)
+        {
+            PingPongColor(8);
         }
 
-        if(criticalDamage){
+        if (criticalDamage)
+        {
             PingPongColor(1);
         }
     }
@@ -54,31 +72,43 @@ public class MoveCharacter : MonoBehaviour {
     }
 
 
-    void inputCharacter() {
+    void InputCharacter() {
         direction = Vector2.zero;
 
+        if (Input.GetKey(KeyCode.Space)) {
+            Attack();
+        }
+
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) {
-            direction += Vector2.up;
-            heroDirection = direction;
+            Move(Vector2.up);
         }
 
         if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) {
-            direction += Vector2.down;
-            heroDirection = direction;
+            Move(Vector2.down);
         }
 
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) {
-            direction += Vector2.left;
-            heroDirection = direction;
+            Move(Vector2.left);
         }
 
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) {
-            direction += Vector2.right;
-            heroDirection = direction;
+            Move(Vector2.right);
         }
+    }
+
+    private void Attack()
+    {
+        Debug.Log("atacando");
+        animator.SetTrigger("attack");
+        attackArea.isTrigger = true;
 
     }
 
+    private void Move(Vector2 newDirection) 
+    {
+        this.direction = newDirection;
+        heroDirection = newDirection;
+    }
     private void PingPongColor(int value) {
         heroRender.color = Color.Lerp(Color.white, Color.magenta, Mathf.PingPong(value * Time.time, .5f));
     }
