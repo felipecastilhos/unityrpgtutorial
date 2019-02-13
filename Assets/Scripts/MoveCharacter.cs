@@ -57,19 +57,22 @@ public class MoveCharacter : MonoBehaviour {
     void inputCharacter() {
         direction = Vector2.zero;
 
-        if (Input.GetKey(KeyCode.UpArrow)) {
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) {
             direction += Vector2.up;
             heroDirection = direction;
         }
-        if (Input.GetKey(KeyCode.DownArrow)) {
+
+        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) {
             direction += Vector2.down;
             heroDirection = direction;
         }
-        if (Input.GetKey(KeyCode.LeftArrow)) {
+
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) {
             direction += Vector2.left;
             heroDirection = direction;
         }
-        if (Input.GetKey(KeyCode.RightArrow)) {
+
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) {
             direction += Vector2.right;
             heroDirection = direction;
         }

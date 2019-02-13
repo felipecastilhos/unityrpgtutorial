@@ -2,22 +2,65 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class Portal : MonoBehaviour {
     [SerializeField] private Transform target;
     [SerializeField] private Tilemap targeTilemap;
+    [SerializeField] private Image fadeImage;
+    [SerializeField] private Text animatedText;
 
+    private void Awake() {
+        fadeImage.enabled = false;
 
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.CompareTag("hero"))
-        {
-            Debug.Log("Teleporting hero to teleport: " + target.name);
-            Debug.Log("Teleporting hero to tilemap: " + targeTilemap.name);
-            Debug.Log("Hero current z: " + collision.transform.position.z);
+    }
+
+    IEnumerator OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.CompareTag("hero")){
+            MoveCharacter moveCharacter = collision.GetComponent<MoveCharacter>();
+            Animator characterAnimator = collision.GetComponent<Animator>();
+            startFadeAnimation(FadeState.IN);
+            CanWalk(moveCharacter, characterAnimator, false);
+            yield return new WaitForSeconds(1);
             collision.transform.position = target.GetChild(0).transform.position;
-            Debug.Log("Hero Teleport to z: " + target.GetChild(0).transform.position.z);
-            TargetCamera.instance.tileMap = targeTilemap;
-            TargetCamera.instance.StartMap();
+            ConfigureCameraByTileMap();
+            CanWalk(moveCharacter, characterAnimator, true);
+            startFadeAnimation(FadeState.OUT);
+            StartCoroutine(animatedText.GetComponent<TextFade>().ShowText(targeTilemap.tag));
+
         }
+        yield return 0;
+    }
+
+    private void ConfigureCameraByTileMap(){
+        TargetCamera.instance.tileMap = targeTilemap;
+        TargetCamera.instance.StartMap();
+    }
+
+    private void startFadeAnimation(FadeState fadeState) {
+        Animator anim = fadeImage.GetComponent<Animator>();
+
+        if(fadeState == FadeState.IN) {
+            fadeImage.enabled = true;
+            anim.Play("FadeInAnimation");
+        }
+        else if(fadeState == FadeState.OUT)
+        {
+            anim.Play("FadeOutAnimation");
+            fadeImage.enabled = false;
+
+        }
+    }
+
+   private void CanWalk(MoveCharacter moveCharacter, Animator animator, bool canWalk) {
+        moveCharacter.enabled = canWalk;
+        animator.enabled = canWalk;
+    }
+
+
+    enum FadeState
+    {
+        IN,
+        OUT
     }
 }
