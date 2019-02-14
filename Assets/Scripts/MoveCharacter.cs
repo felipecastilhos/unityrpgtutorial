@@ -26,7 +26,7 @@ public class MoveCharacter : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        attackArea.isTrigger = false;
+        attackArea.enabled = false;
         InputCharacter();
         if(direction != Vector2.zero)
         {
@@ -38,7 +38,8 @@ public class MoveCharacter : MonoBehaviour {
     }
 
     private void SetAnimation(){
-        if (System.Math.Abs(direction.x) > 0.0f || System.Math.Abs(direction.y) > 0.0f)
+        if (System.Math.Abs(direction.x) > 0.0f || 
+        System.Math.Abs(direction.y) > 0.0f)
         {
             Animate(direction);
         }
@@ -100,7 +101,7 @@ public class MoveCharacter : MonoBehaviour {
     {
         Debug.Log("atacando");
         animator.SetTrigger("attack");
-        attackArea.isTrigger = true;
+        attackArea.enabled = true;
 
     }
 

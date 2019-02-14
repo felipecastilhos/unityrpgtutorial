@@ -9,9 +9,8 @@ public class Destructable : MonoBehaviour
 
     IEnumerator OnTriggerEnter2D(Collider2D collision) {
 
-        if (collision.gameObject.CompareTag("heroAttack"))
-        {
-        Debug.Log("start breaking animation");
+        if (collision.gameObject.CompareTag("heroAttack")) {
+            Debug.Log("Breaking pot");
             destructionAnimator.Play("Breaking");
             yield return new WaitForSeconds(1);
             Destroy(gameObject);
