@@ -32,8 +32,8 @@ TextureImporter:
     21300054: objects_27
     21300056: objects_28
     21300058: objects_29
-    21300060: objects_30
-    21300062: objects_31
+    21300060: coin1
+    21300062: coin3
     21300064: objects_32
     21300066: objects_33
     21300068: objects_34
@@ -94,6 +94,8 @@ TextureImporter:
     21300178: objects_89
     21300180: objects_90
     21300182: objects_91
+    21300184: coin2
+    21300186: coin4
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -809,15 +811,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: objects_30
+      name: coin1
       rect:
         serializedVersion: 2
         x: 0
-        y: 224
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        y: 240
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0.50174606, y: 0.50078297}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -829,13 +831,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: objects_31
+      name: coin3
       rect:
         serializedVersion: 2
         x: 32
-        y: 224
-        width: 32
-        height: 32
+        y: 240
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2044,6 +2046,46 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 47629d07be3be420884401b9816fb9b5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coin2
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea220c08a2fbf45d2801f45face13c7b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coin4
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39a6a5e0eac07444cae1e42c56562f0f
       vertices: []
       indices: 
       edges: []
