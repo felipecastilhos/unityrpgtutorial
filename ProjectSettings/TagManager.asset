@@ -8,6 +8,7 @@ TagManager:
   - hero
   - "Pra\xE7inha das Na\xE7\xF5es"
   - Grow do Curra
+  - heroAttack
   layers:
   - Default
   - TransparentFX
