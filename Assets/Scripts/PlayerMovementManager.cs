@@ -76,7 +76,7 @@ public class MoveCharacter : MonoBehaviour {
     void InputCharacter() {
         direction = Vector2.zero;
 
-        if (Input.GetKey(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space)) {
             Attack();
         }
 
