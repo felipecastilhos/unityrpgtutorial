@@ -5,6 +5,7 @@ using System.Collections;
 public class PlayerStats : MonoBehaviour {
     public const string TAG_EXPERIENCE_CURRENT = "CurrentExperience";
     public const string TAG_LEVEL_CURRENT = "CurrentLevel";
+    public const string TAG_CHARACTER_JOB = "CharacterJob";
 
     public static PlayerStats instance;
 
@@ -34,16 +35,15 @@ public class PlayerStats : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetKey(KeyCode.F)) {
+        if (Input.GetKeyDown(KeyCode.F)) {
             AddExperience(100);
             txtXp.text = "XP: " + GetCurrentExperience();
             txtLevel.text = "Level: " + GetLevel();
             txtXpNextLevel.text = "Next Level: " + GetExperienceNextLevel();
         }
-        if (Input.GetKey(KeyCode.R)) {
+        if (Input.GetKeyDown(KeyCode.R)) {
             PlayerPrefs.DeleteAll();
         }
-
     }
 
     public float GetCurrentExperience() {
@@ -80,5 +80,6 @@ public class PlayerStats : MonoBehaviour {
         int newLevel = GetLevel() + 1;
         PlayerPrefs.SetInt(TAG_LEVEL_CURRENT, newLevel);
     }
+
 
 }
