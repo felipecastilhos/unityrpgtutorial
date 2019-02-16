@@ -17,7 +17,7 @@ public class Portal : MonoBehaviour {
 
     IEnumerator OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("hero")){
-            MoveCharacter moveCharacter = collision.GetComponent<MoveCharacter>();
+            PlayerMovementManager moveCharacter = collision.GetComponent<PlayerMovementManager>();
             Animator characterAnimator = collision.GetComponent<Animator>();
             startFadeAnimation(FadeState.IN);
             CanWalk(moveCharacter, characterAnimator, false);
@@ -52,7 +52,7 @@ public class Portal : MonoBehaviour {
         }
     }
 
-   private void CanWalk(MoveCharacter moveCharacter, Animator animator, bool canWalk) {
+   private void CanWalk(PlayerMovementManager moveCharacter, Animator animator, bool canWalk) {
         moveCharacter.enabled = canWalk;
         animator.enabled = canWalk;
     }

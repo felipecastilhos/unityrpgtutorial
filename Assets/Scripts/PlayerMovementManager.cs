@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveCharacter : MonoBehaviour {
+public class PlayerMovementManager : MonoBehaviour {
     private float velocity;
     private Vector2 direction;
     public Animator animator;
