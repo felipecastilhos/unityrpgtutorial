@@ -353,7 +353,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &161725416
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3958,11 +3958,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 807318537}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bb930f2548234134ab823338e33cf54, type: 3}
+  m_Script: {fileID: 11500000, guid: ab0a214592c494a43b52e1f2d9cf8975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 807318540}
-  criticalDamage: 1
+  animator: {fileID: 0}
+  criticalDamage: 0
   attackArea: {fileID: 0}
 --- !u!212 &807318542
 SpriteRenderer:
@@ -17200,7 +17200,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2025761750}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bb930f2548234134ab823338e33cf54, type: 3}
+  m_Script: {fileID: 11500000, guid: ab0a214592c494a43b52e1f2d9cf8975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 2025761754}
@@ -17392,6 +17392,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4781182282398082750, guid: dbdfb6c4450d14451b501d5098b3f134,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4781182282398082749, guid: dbdfb6c4450d14451b501d5098b3f134,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -17400,11 +17405,6 @@ PrefabInstance:
     - target: {fileID: 4781182282398082749, guid: dbdfb6c4450d14451b501d5098b3f134,
         type: 3}
       propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4781182282398082750, guid: dbdfb6c4450d14451b501d5098b3f134,
-        type: 3}
-      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
