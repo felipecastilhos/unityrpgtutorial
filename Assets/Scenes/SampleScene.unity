@@ -1035,9 +1035,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseInfoJobs:
   - job: 0
-    baseInfo: {fileID: 11400000, guid: 6030801194bae46579e65af6d52965c4, type: 2}
+    baseInfo:
+      hpBase: 100
+      manaBase: 40
+      strenght: 3
+      agility: 3
+      attackBase: 50
+      defenseBase: 50
   - job: 1
-    baseInfo: {fileID: 0}
+    baseInfo:
+      hpBase: 80
+      manaBase: 60
+      strenght: 2
+      agility: 4
+      attackBase: 60
+      defenseBase: 40
   experienceMultiplier: 2
   experienceLevel: 100
   dificultyFactor: 1.8
@@ -17357,12 +17369,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelBase: 0
-  hpBase: 0
-  manaBase: 0
-  strenght: 0
-  agility: 0
-  attackBase: 0
-  defenseBase: 0
+  baseStatsJob:
+    hpBase: 0
+    manaBase: 0
+    strenght: 0
+    agility: 0
+    attackBase: 0
+    defenseBase: 0
   job: 1
 --- !u!1001 &2107337775
 PrefabInstance:

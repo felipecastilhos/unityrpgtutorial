@@ -18,15 +18,7 @@ public class PlayerJob : PlayerBase {
         playerStats.SetJob(Job.Warrior);
         job = playerStats.GetJob();
 
-        BaseInfo basicInfo = PlayerStats.instance.GetBaseInfo(job);
-
-        hpBase = basicInfo.hpBase;
-        manaBase = basicInfo.manaBase;
-        strenght = basicInfo.strenght;
-        agility = basicInfo.agility;
-        defenseBase = basicInfo.defenseBase;
-        attackBase = basicInfo.attackBase;
-        
+        baseStatsJob = PlayerStats.instance.GetBaseInfo(job);
     }
 
     // Update is called once per frame

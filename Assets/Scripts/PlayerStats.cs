@@ -6,7 +6,7 @@ using System.Collections.Generic;
 [System.Serializable]
 public class BaseInfoJob {
     public Job job;
-    public BaseInfo baseInfo;
+    public BaseStatsJob baseInfo;
 }
 
 public class PlayerStats : MonoBehaviour {
@@ -103,7 +103,7 @@ public class PlayerStats : MonoBehaviour {
 
  
 
-    public BaseInfo GetBaseInfo(Job job) {
+    public BaseStatsJob GetBaseInfo(Job job) {
 
         foreach(BaseInfoJob infoJob in baseInfoJobs) {
             if (infoJob.job == job) return infoJob.baseInfo;
