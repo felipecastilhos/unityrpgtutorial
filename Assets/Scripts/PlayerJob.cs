@@ -3,21 +3,30 @@ using System.Collections;
 
 
 public enum Job {
-    WARRIOR,
-    HUNTER
+    Warrior = 0,
+    Hunter = 1
 }
 
 public class PlayerJob : PlayerBase {
 
     public Job job;
 
-
-
     // Use this for initialization
-    void Start() {
-        levelBase = 1;
-        hpBase = 100;
+    new void Start() {
+        base.Start();
+        PlayerStats playerStats = PlayerStats.instance;
+        playerStats.SetJob(Job.Warrior);
+        job = playerStats.GetJob();
 
+        BaseInfo basicInfo = PlayerStats.instance.GetBaseInfo(job);
+
+        hpBase = basicInfo.hpBase;
+        manaBase = basicInfo.manaBase;
+        strenght = basicInfo.strenght;
+        agility = basicInfo.agility;
+        defenseBase = basicInfo.defenseBase;
+        attackBase = basicInfo.attackBase;
+        
     }
 
     // Update is called once per frame

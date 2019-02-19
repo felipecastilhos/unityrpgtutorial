@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class PlayerBase : MonoBehaviour {
+
+[CreateAssetMenu(fileName ="BasicInfo", menuName ="BasicInfo")]
+public class BaseInfo : ScriptableObject {
     public int levelBase;
     public int hpBase;
     public int manaBase;
@@ -9,8 +11,4 @@ public abstract class PlayerBase : MonoBehaviour {
     public int agility;
     public int attackBase;
     public int defenseBase;
-
-    public void Start() {
-        levelBase = 1;
-    }
 }

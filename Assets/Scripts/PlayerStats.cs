@@ -1,6 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
+
+[System.Serializable]
+public class BaseInfoJob {
+    public Job job;
+    public BaseInfo baseInfo;
+}
 
 public class PlayerStats : MonoBehaviour {
     public const string TAG_EXPERIENCE_CURRENT = "CurrentExperience";
@@ -8,6 +15,7 @@ public class PlayerStats : MonoBehaviour {
     public const string TAG_CHARACTER_JOB = "CharacterJob";
 
     public static PlayerStats instance;
+    public List<BaseInfoJob> baseInfoJobs;
 
     public int experienceMultiplier = 2;
     public float experienceLevel = 100;
@@ -52,11 +60,8 @@ public class PlayerStats : MonoBehaviour {
 
     public void AddExperience(float experienceAdd) {
         float currentExperience = GetCurrentExperience();
-        print("[Experience] current added: " + currentExperience);
         float experienceAdded = experienceAdd * experienceMultiplier;
-        print("[Experience] experience added: " + experienceAdded);
         float newExperience = currentExperience + experienceAdded;
-        print("[Experience] new experienced: " + newExperience);
         float nextLevel = GetExperienceNextLevel();
 
         while(newExperience >= nextLevel) {
@@ -82,4 +87,28 @@ public class PlayerStats : MonoBehaviour {
     }
 
 
+    public void SetJob(Job job) {
+        PlayerPrefs.SetInt(TAG_CHARACTER_JOB, (int) job);
+    }
+
+    public Job GetJob() {
+        int jobValue = PlayerPrefs.GetInt(TAG_CHARACTER_JOB);
+        switch(jobValue) {
+            case 1: 
+                return Job.Hunter;
+            default:
+                return Job.Warrior;
+        }
+    }
+
+ 
+
+    public BaseInfo GetBaseInfo(Job job) {
+
+        foreach(BaseInfoJob infoJob in baseInfoJobs) {
+            if (infoJob.job == job) return infoJob.baseInfo;
+        }
+
+        return baseInfoJobs[0].baseInfo;
+    }
 }
