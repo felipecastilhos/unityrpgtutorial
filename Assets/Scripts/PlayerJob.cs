@@ -17,12 +17,17 @@ public class PlayerJob : PlayerBase {
         PlayerStats playerStats = PlayerStats.instance;
         playerStats.SetJob(Job.Warrior);
         job = playerStats.GetJob();
-
         baseStatsJob = PlayerStats.instance.GetBaseInfo(job);
+        resistencyPoints = baseStatsJob.hpBase;
     }
 
     // Update is called once per frame
     void Update() {
 
+    }
+
+    public void AddDamage(int damage) {
+        base.AddDamage(damage);
+        Dead();
     }
 }

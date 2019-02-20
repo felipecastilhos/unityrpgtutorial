@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Destructable : DestructableBase
+public class DestructableItem : DestructableBase
 {
     [SerializeField] Animator destructionAnimator;
 
@@ -19,5 +19,9 @@ public class Destructable : DestructableBase
         CoinSpawn.instance.Spawn(transform.position);
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
+    }
+
+    public override void Dead() {
+        print("this object never dies hahaha");
     }
 }

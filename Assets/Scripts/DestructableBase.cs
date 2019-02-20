@@ -15,4 +15,5 @@ public abstract class DestructableBase : MonoBehaviour
     }
 
     public abstract IEnumerator DoDestroy();
+    public abstract void Dead();
 }
