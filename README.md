@@ -15,7 +15,7 @@ Hero:
 
 Enemy:
 
-\\\\Bats 
+\\\\ Bats 
 - Follow the player
 
 
